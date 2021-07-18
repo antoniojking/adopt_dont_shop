@@ -86,7 +86,7 @@ RSpec.describe 'the pets index' do
   # When I visit the pet index page
   # Then I see a link to "Start an Application"
   # When I click this link
-  # Then I am taken to the new application page where I see a form
+  # Then I am taken to the new application page where I see a form (see /adopt_applications/new_spec.rb)
   # When I fill in this form with my:
   #   - Name
   #   - Street Address
@@ -98,11 +98,6 @@ RSpec.describe 'the pets index' do
   # And I see my Name, address information, and description of why I would make a good home
   # And I see an indicator that this application is "In Progress"
   it 'has a link to start a new application' do
-    # shelter_1 = Shelter.create!(name: 'Longmont Humane Society', city: 'Longmont, CO', foster_program: false, rank: 9)
-    # pet_1 = shelter_1.pets.create!(name: 'Butter', breed: 'Cocker Spaniel', age: 11, adoptable: true)
-    # pet_2 = shelter_1.pets.create!(name: 'Marg', breed: 'Beagle', age: 3, adoptable: false)
-    # pet_3 = shelter_1.pets.create!(name: 'Mathias', breed: 'Great Dane', age: 3, adoptable: true)
-
     visit '/pets'
 
     click_on('Start an Application')
