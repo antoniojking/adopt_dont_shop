@@ -3,24 +3,35 @@
 <%= form_with(url: "/adopt_applications", method: :post, local: true) do |form| %>
 <%= form.label :first_name, 'First Name:' %>
 <%= form.text_field :first_name %>
-
+<br>
+<br>
 <%= form.label :last_name, 'Last Name:'%>
 <%= form.text_field :last_name %>
-
+<br>
+<br>
 <%= form.label :street_address, 'Street Address:' %>
 <%= form.text_field :street_address %>
-
+<br>
+<br>
 <%= form.label :city, 'City:' %>
 <%= form.text_field :city %>
-
+<br>
+<br>
 <%= form.label :state, 'State:' %>
 <%= form.text_field :state, limit: 2 %>
-
+<br>
+<br>
 <%= form.label :zipcode, 'Zipcode:' %>
 <%= form.number_field :zipcode, limit: 5 %>
-
+<br>
+<br>
 <%= form.label :description, "Why do you think you'd be a good home for this pet(s)?" %>
 <%= form.text_field :description %>
-
+<br>
+<br>
+<%= form.label :application_status, "Application Status:" %>
+<%= form.select :application_status, ['In Progress', 'Pending', 'Accepted', 'Rejected'] %>
+<br>
+<br>
 <%= form.submit 'Submit Application' %>
 <% end %>

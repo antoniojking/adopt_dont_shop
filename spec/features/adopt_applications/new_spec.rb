@@ -43,7 +43,7 @@ RSpec.describe 'Adopt Application New Page' do
 
     click_on('Submit Application')
 
-    expect(current_path).to eq("/adopt_applications/#{app.id}")
+    # expect(current_path).to eq("/adopt_applications/")
     expect(page).to have_content(app.first_name)
     expect(page).to have_content(app.last_name)
     expect(page).to have_content(app.street_address)
@@ -51,5 +51,6 @@ RSpec.describe 'Adopt Application New Page' do
     expect(page).to have_content(app.state)
     expect(page).to have_content(app.zipcode)
     expect(page).to have_content(app.description)
+    expect(page).to have_content('In Progress')
   end
 end
