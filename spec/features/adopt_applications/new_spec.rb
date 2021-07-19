@@ -37,7 +37,7 @@ RSpec.describe 'Adopt Application New Page' do
     fill_in('Zipcode:', with: app.zipcode)
     fill_in(:description, with: app.description)
 
-    click_on('Submit')
+    click_on('Submit Application')
 
     expect(current_path).to eq("/adopt_applications/#{app.id}")
     expect(page).to have_content(app.first_name)
