@@ -29,7 +29,7 @@ RSpec.describe 'Adopt Application New Page' do
 
     visit '/pets'
 
-    click_on('Start and Application')
+    click_on('Start an Application')
 
     expect(current_path).to eq('/adopt_applications/new')
 
