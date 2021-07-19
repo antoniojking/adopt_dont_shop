@@ -27,7 +27,11 @@ RSpec.describe 'Adopt Application New Page' do
       description: "I would make a good home for this pet because my dad will take care of it for me.",
       application_status: "In Progress")
 
-    visit '/adopt_applications/new'
+    visit '/pets'
+
+    click_on('Start and Application')
+
+    expect(current_path).to eq('/adopt_applications/new')
 
     fill_in('First Name:', with: app.first_name)
     fill_in('Last Name:', with: app.last_name)
