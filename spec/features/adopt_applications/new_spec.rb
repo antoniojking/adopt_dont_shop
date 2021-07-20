@@ -54,16 +54,20 @@ RSpec.describe 'Adopt Application New Page' do
     expect(page).to have_content('In Progress')
   end
 
-# Starting an Application, Form not Completed
-# As a visitor
-# When I visit the new application page
-# And I fail to fill in any of the form fields
-# And I click submit
-# Then I am taken back to the new applications page
-# And I see a message that I must fill in those fields.
-visit '/adopt_applications/new'
+  # Starting an Application, Form not Completed
+  # As a visitor
+  # When I visit the new application page
+  # And I fail to fill in any of the form fields
+  # And I click submit
+  # Then I am taken back to the new applications page
+  # And I see a message that I must fill in those fields.
+  it 'can not submit an application without a first name' do
+    visit '/adopt_applications/new'
 
-click_on('Submit Application')
+    click_on('Submit Application')
 
-expect(current_path).to eq('/adopt_applications/new')
+    expect(current_path).to eq('/adopt_applications/new')
+    expect(page).to have_content('Application not created: Required information missing.')
+    expect(page).to have_button('Submit Application')
+  end
 end
