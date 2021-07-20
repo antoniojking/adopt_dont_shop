@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Adopt Application New Page' do
+  # Starting an Application
   # As a visitor
   # When I visit the pet index page (see /pets/index_spec.rb)
   # Then I see a link to "Start an Application"
@@ -52,4 +53,17 @@ RSpec.describe 'Adopt Application New Page' do
     expect(page).to have_content(app.description)
     expect(page).to have_content('In Progress')
   end
+
+# Starting an Application, Form not Completed
+# As a visitor
+# When I visit the new application page
+# And I fail to fill in any of the form fields
+# And I click submit
+# Then I am taken back to the new applications page
+# And I see a message that I must fill in those fields.
+visit '/adopt_applications/new'
+
+click_on('Submit Application')
+
+expect(current_path).to eq('/adopt_applications/new')
 end
