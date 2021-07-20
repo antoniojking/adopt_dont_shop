@@ -24,8 +24,7 @@ RSpec.describe 'Adopt Application New Page' do
       city: "Longmont",
       state: "CO",
       zipcode: 80504,
-      description: "I would make a good home for this pet because my dad will take care of it for me.",
-      application_status: "In Progress")
+      description: "I would make a good home for this pet because my dad will take care of it for me.")
 
     visit '/pets'
 

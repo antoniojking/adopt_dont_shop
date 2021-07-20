@@ -32,8 +32,7 @@ AdoptApplication.destroy_all
   city: "Longmont",
   state: "CO",
   zipcode: 80504,
-  description: "I would make a good home for this pet because my dad will take care of it for me.",
-  application_status: "In Progress")
+  description: "I would make a good home for this pet because my dad will take care of it for me.")
 @app_2 = @pet_4.adopt_applications.create!(
   first_name: "Trevor",
   last_name: "King",
@@ -41,8 +40,7 @@ AdoptApplication.destroy_all
   city: "Longmont",
   state: "CO",
   zipcode: 80504,
-  description: "I would make a good home for this pet because I love marbles and my dog will too.",
-  application_status: "In Progress")
+  description: "I would make a good home for this pet because I love marbles and my dog will too.")
 
 # Pets added to Applications through Join
 ApplicationPet.create!(pet: @pet_3, adopt_application: @app_1)
