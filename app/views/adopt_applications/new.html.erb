@@ -18,11 +18,11 @@
 <br>
 <br>
 <%= form.label :state, 'State:' %>
-<%= form.text_field :state, limit: 2 %>
+<%= form.select :state, ['--', 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'] %>
 <br>
 <br>
 <%= form.label :zipcode, 'Zipcode:' %>
-<%= form.number_field :zipcode, limit: 5 %>
+<%= form.number_field :zipcode, in: 00000..99999 %>
 <br>
 <br>
 <%= form.label :description, "Why do you think you'd be a good home for this pet(s)?" %>

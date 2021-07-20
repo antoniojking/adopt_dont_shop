@@ -14,8 +14,7 @@ RSpec.describe 'Adopt Application Show Page' do
       city: "Longmont",
       state: "CO",
       zipcode: 80504,
-      description: "I would make a good home for this pet because my dad will take care of it for me.",
-      application_status: "In Progress")
+      description: "I would make a good home for this pet because my dad will take care of it for me.")
 
     ApplicationPet.create!(pet: @pet_3, adopt_application: @app_1)
   end
@@ -30,7 +29,7 @@ RSpec.describe 'Adopt Application Show Page' do
   # - The Application's status, either "In Progress", "Pending", "Accepted", or "Rejected"
   it 'shows the application and all its attributes' do
     visit "/adopt_applications/#{@app_1.id}"
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content(@app_1.first_name)
     expect(page).to have_content(@app_1.last_name)
     expect(page).to have_content(@app_1.street_address)
@@ -40,7 +39,7 @@ RSpec.describe 'Adopt Application Show Page' do
     expect(page).to have_content(@pet_1.name)
     expect(page).to have_content(@pet_3.name)
     expect(page).to have_content(@app_1.description)
-    expect(page).to have_content(@app_1.application_status)
+    expect(page).to have_content(@app_1.status)
 
     click_on("#{@pet_1.name}")
 

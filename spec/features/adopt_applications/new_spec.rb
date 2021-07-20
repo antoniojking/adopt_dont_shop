@@ -36,13 +36,13 @@ RSpec.describe 'Adopt Application New Page' do
     fill_in('Last Name:', with: app.last_name)
     fill_in('Street Address:', with: app.street_address)
     fill_in('City:', with: app.city)
-    fill_in('State:', with: app.state)
+    select(app.state, from: 'State:')
     fill_in('Zipcode:', with: app.zipcode)
     fill_in(:description, with: app.description)
 
     click_on('Submit Application')
 
-    # expect(current_path).to eq("/adopt_applications/")
+    # expect(current_path).to eq("/adopt_applications/#{app.id}")
     expect(page).to have_content(app.first_name)
     expect(page).to have_content(app.last_name)
     expect(page).to have_content(app.street_address)
