@@ -66,7 +66,6 @@ RSpec.describe 'Adopt Application New Page' do
 
     click_on('Submit Application')
 
-    expect(current_path).to eq('/adopt_applications/new')
     expect(page).to have_content('Application not created: Required information missing.')
     expect(page).to have_button('Submit Application')
   end

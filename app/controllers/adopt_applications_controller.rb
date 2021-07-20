@@ -12,9 +12,13 @@ class AdoptApplicationsController < ApplicationController
   end
 
   def create
-    @application = AdoptApplication.create!(adopt_application_params)
-    
-    redirect_to "/adopt_applications/#{@application.id}"
+    @application = AdoptApplication.new(adopt_application_params)
+    if @application.save
+      redirect_to "/adopt_applications/#{@application.id}"
+    else
+      flash[:notice] = "Application not created: Required information missing."
+      render :new
+    end
   end
 
   private
