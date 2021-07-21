@@ -79,11 +79,11 @@ RSpec.describe 'Adopt Application Show Page' do
       street_address: "3200 Nuclear Lane",
       city: "Balston Spa",
       state: "NY",
-      zipcode: 10887,
-      description: "l want to be a dog dad!")
+      zipcode: 10887)
 
     visit "/adopt_applications/#{app_3.id}"
 
+    expect(page).to have_content("Add a Pet to this Application")
     expect(page).to have_button("Search")
   end
 
@@ -99,8 +99,7 @@ RSpec.describe 'Adopt Application Show Page' do
       street_address: "3200 Nuclear Lane",
       city: "Balston Spa",
       state: "NY",
-      zipcode: 10887,
-      description: "l want to be a dog dad!")
+      zipcode: 10887)
 
     visit "/adopt_applications/#{app_3.id}"
 
