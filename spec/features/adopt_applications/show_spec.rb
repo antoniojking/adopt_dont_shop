@@ -156,6 +156,8 @@ RSpec.describe 'Adopt Application Show Page' do
       expect(page).to have_button('Adopt this Pet')
     end
 
+    click_on('Adopt this Pet')
 
+    expect(page).to have_link(pet_2.name)
   end
 end
