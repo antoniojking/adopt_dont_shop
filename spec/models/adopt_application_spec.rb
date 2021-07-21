@@ -14,6 +14,5 @@ RSpec.describe AdoptApplication do
     it { should validate_presence_of(:state) }
     it { should validate_presence_of(:zipcode) }
     it { should validate_numericality_of(:zipcode).only_integer }
-    it { should validate_presence_of(:description) }
   end
 end

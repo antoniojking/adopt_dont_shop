@@ -24,8 +24,7 @@ RSpec.describe 'Adopt Application New Page' do
       street_address: "1000 Dinosaur Lane",
       city: "Longmont",
       state: "CO",
-      zipcode: 80504,
-      description: "I would make a good home for this pet because my dad will take care of it for me.")
+      zipcode: 80504)
 
     visit '/pets'
 
@@ -39,7 +38,6 @@ RSpec.describe 'Adopt Application New Page' do
     fill_in('City:', with: app.city)
     select(app.state, from: 'State:')
     fill_in('Zipcode:', with: app.zipcode)
-    fill_in(:description, with: app.description)
 
     click_on('Submit Application')
 
@@ -50,7 +48,6 @@ RSpec.describe 'Adopt Application New Page' do
     expect(page).to have_content(app.city)
     expect(page).to have_content(app.state)
     expect(page).to have_content(app.zipcode)
-    expect(page).to have_content(app.description)
     expect(page).to have_content('In Progress')
   end
 

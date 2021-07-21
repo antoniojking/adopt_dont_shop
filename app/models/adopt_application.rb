@@ -8,5 +8,4 @@ class AdoptApplication < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :zipcode, presence: true, numericality: { only_integer: true }
-  validates :description, presence: true
 end
