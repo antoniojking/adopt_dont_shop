@@ -26,3 +26,8 @@
 <%= f.text_field :search %>
 <%= f.submit "Search" %>
 <% end %>
+
+<h3>Pet Matches:</h3>
+<% @pets.each do |pet| %>
+  <%= pet.name %><br>
+<% end %>
