@@ -151,9 +151,11 @@ RSpec.describe 'Adopt Application Show Page' do
     fill_in('Pet Name:', with: 'Babe')
     click_on('Search')
 
+    within "#Pet-Match-#{pet_2.name}" do
+      expect(page).to have_content(pet_2.name)
+      expect(page).to have_button('Adopt this Pet')
+    end
 
-    expect(page).to have_content(pet_2.name)
-    expect(page).to have_button('Adopt this Pet')
 
   end
 end

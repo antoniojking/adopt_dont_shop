@@ -30,6 +30,10 @@
 
   <h3>Pet Matches:</h3>
   <% @pets.each do |pet| %>
-    <%= pet.name %><br>
+    <div id="Pet-Match-<%= pet.name%>">
+      <%= pet.name %>
+      
+    </div>
+    <br>
   <% end %>
 </div>
