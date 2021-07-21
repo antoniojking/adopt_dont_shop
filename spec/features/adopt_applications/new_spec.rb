@@ -61,7 +61,7 @@ RSpec.describe 'Adopt Application New Page' do
   # And I click submit
   # Then I am taken back to the new applications page
   # And I see a message that I must fill in those fields.
-  it 'can not submit an application without a first name' do
+  it 'can not submit an application without filling in all fields' do
     visit '/adopt_applications/new'
 
     click_on('Submit Application')
