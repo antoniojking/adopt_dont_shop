@@ -104,12 +104,56 @@ RSpec.describe 'Adopt Application Show Page' do
 
     visit "/adopt_applications/#{app_3.id}"
 
+    within "#Pet-Search" do
+      fill_in('Pet Name:', with: 'Babe')
+      click_on('Search')
+
+      expect(page).to have_content(pet_2.name)
+      expect(page).to have_content(pet_4.name)
+      expect(page).to_not have_content(pet_1.name)
+      expect(page).to_not have_content(pet_3.name)
+    end
+
+    # fill_in('Pet Name:', with: 'Babe')
+    # click_on('Search')
+
+    # expect(page).to have_content(pet_2.name)
+    # expect(page).to have_content(pet_4.name)
+    # expect(page).to_not have_content(pet_1.name)
+    # expect(page).to_not have_content(pet_3.name)
+  end
+
+  # Add a Pet to an Application
+  # As a visitor
+  # When I visit an application's show page
+  # And I search for a Pet by name
+  # And I see the names Pets that match my search
+  # Then next to each Pet's name I see a button to "Adopt this Pet"
+  # When I click one of these buttons
+  # Then I am taken back to the application show page
+  # And I see the Pet I want to adopt listed on this application
+  it 'can add pets to the application' do
+    shelter = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
+    pet_1 = Pet.create(adoptable: true, age: 7, breed: 'sphynx', name: 'Bare-y Manilow', shelter_id: shelter.id)
+    pet_2 = Pet.create(adoptable: true, age: 3, breed: 'domestic pig', name: 'Babe', shelter_id: shelter.id)
+    pet_3 = Pet.create(adoptable: true, age: 4, breed: 'chihuahua', name: 'Elle', shelter_id: shelter.id)
+
+    app_3 = AdoptApplication.create!(
+      first_name: "Trevor",
+      last_name: "Bennet",
+      street_address: "3200 Nuclear Lane",
+      city: "Balston Spa",
+      state: "NY",
+      zipcode: 10887)
+
+    visit "/adopt_applications/#{app_3.id}"
+
     fill_in('Pet Name:', with: 'Babe')
     click_on('Search')
 
+
     expect(page).to have_content(pet_2.name)
-    expect(page).to have_content(pet_4.name)
-    expect(page).to_not have_content(pet_1.name)
-    expect(page).to_not have_content(pet_3.name)
+    expect(page).to have_button('Adopt this Pet')
+
   end
 end
