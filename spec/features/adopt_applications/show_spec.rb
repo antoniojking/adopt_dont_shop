@@ -14,8 +14,7 @@ RSpec.describe 'Adopt Application Show Page' do
       street_address: "1000 Dinosaur Lane",
       city: "Longmont",
       state: "CO",
-      zipcode: 80504,
-      description: "I would make a good home for this pet because my dad will take care of it for me.")
+      zipcode: 80504)
 
     ApplicationPet.create!(pet: @pet_3, adopt_application: @app_1)
 
@@ -25,8 +24,7 @@ RSpec.describe 'Adopt Application Show Page' do
       street_address: "3200 Nuclear Lane",
       city: "Balston Spa",
       state: "NY",
-      zipcode: 10887,
-      description: "l want to be a dog dad!")
+      zipcode: 10887)
   end
 
   # As a visitor
@@ -48,7 +46,7 @@ RSpec.describe 'Adopt Application Show Page' do
     expect(page).to have_content(@app_1.zipcode)
     expect(page).to have_content(@pet_1.name)
     expect(page).to have_content(@pet_3.name)
-    expect(page).to have_content(@app_1.description)
+    expect(page).to have_content("Why do you think you'd be a good home for this pet(s)?")
     expect(page).to have_content(@app_1.status)
 
     expect(page).to_not have_content(@app_2.first_name)
@@ -58,7 +56,6 @@ RSpec.describe 'Adopt Application Show Page' do
     expect(page).to_not have_content(@app_2.state)
     expect(page).to_not have_content(@app_2.zipcode)
     expect(page).to_not have_content(@pet_4.name)
-    expect(page).to_not have_content(@app_2.description)
 
     click_on("#{@pet_1.name}")
 
@@ -76,7 +73,7 @@ RSpec.describe 'Adopt Application Show Page' do
   # Then I am taken back to the application show page
   # And under the search bar I see any Pet whose name matches my search
   it 'has a text box to filter results by name' do
-    app_3 = AdoptApplications.create!(
+    app_3 = AdoptApplication.create!(
       first_name: "Trevor",
       last_name: "Bennet",
       street_address: "3200 Nuclear Lane",
@@ -90,13 +87,13 @@ RSpec.describe 'Adopt Application Show Page' do
     expect(page).to have_button("Search")
   end
 
-  it 'can search for pets by name and return list of pets that match name' do
+  xit 'can search for pets by name and return list of pets that match name' do
     shelter = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
     pet_1 = Pet.create(adoptable: true, age: 7, breed: 'sphynx', name: 'Bare-y Manilow', shelter_id: shelter.id)
     pet_2 = Pet.create(adoptable: true, age: 3, breed: 'domestic pig', name: 'Babe', shelter_id: shelter.id)
     pet_3 = Pet.create(adoptable: true, age: 4, breed: 'chihuahua', name: 'Elle', shelter_id: shelter.id)
 
-    app_3 = AdoptApplications.create!(
+    app_3 = AdoptApplication.create!(
       first_name: "Trevor",
       last_name: "Bennet",
       street_address: "3200 Nuclear Lane",

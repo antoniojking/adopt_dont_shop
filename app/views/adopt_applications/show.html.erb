@@ -1,5 +1,11 @@
 <h1>Application Show Page</h1>
 
+<%= form_with url: "/adopt_applications/#{@application.id}", method: :get, local: true do |f| %>
+  <%= f.label :search, 'Pet Name:' %>
+  <%= f.text_field :search %>
+  <%= f.submit "Search" %>
+<% end %>
+
 <h3>Applicant Name:</h3>
 <p> <%= @application.first_name %> <%= @application.last_name %></p>
 
@@ -11,7 +17,7 @@
 <%=link_to "#{pet.name}", "/pets/#{pet.id}" %>&nbsp;
 <% end %></p>
 
-<h3>Why would you be a good home for this pet?</h3>
+<h3>Why do you think you'd be a good home for this pet(s)?</h3>
 <p> <%= @application.description %></p>
 
 <h3>Application Status:</h3>
