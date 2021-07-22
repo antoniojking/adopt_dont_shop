@@ -41,4 +41,6 @@ Rails.application.routes.draw do
   get '/adopt_applications/new', to: 'adopt_applications#new'
   get '/adopt_applications/:id', to: 'adopt_applications#show'
   post '/adopt_applications', to: 'adopt_applications#create'
+
+  post '/adopt_applications/:id/pets', to: 'application_pets#create'
 end

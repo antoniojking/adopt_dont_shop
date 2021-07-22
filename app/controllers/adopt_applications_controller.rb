@@ -26,6 +26,9 @@ class AdoptApplicationsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   private
   def adopt_application_params
     params.permit(:first_name, :last_name, :street_address, :city, :state, :zipcode, :description)
